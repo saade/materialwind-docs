@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>materialwind cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: #000;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .cover {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background: #11140f;
+    color: #e1e4da;
+    padding: 100px 100px 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: -30% -10% auto auto;
+    width: 1248px; height: 1248px;
+    background: radial-gradient(circle, #a7d29322 0%, transparent 62%);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 30px;
+    letter-spacing: 0.06em;
+    color: #a7d293;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: 118px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+  h1 .accent { color: #a7d293; }
+
+  .tagline {
+    margin-top: 22px;
+    font-size: 36px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: #c3c8bb;
+    max-width: 980px;
+  }
+
+  .ramp { display: flex; gap: 16px; margin-top: 70px; }
+  .ramp span {
+    width: 108px; height: 108px;
+    border-radius: 26px;
+    border: 1px solid #43483f;
+  }
+
+  .chips {
+    position: absolute;
+    right: 100px; bottom: 100px;
+    display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+  }
+  .chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 22px; font-weight: 500;
+    padding: 18px 30px;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  }
+
+  .footer {
+    position: absolute;
+    left: 100px; bottom: 100px;
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+    color: #c3c8bb;
+  }
+  .footer .dot { width: 5px; height: 5px; border-radius: 50%; background: #8d9387; }
+
+  .brand {
+    position: absolute;
+    top: 100px; left: 100px;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #e1e4da;
+  }
+  .brand svg { width: 41px; height: 41px; display: block; }
+
+  .badge {
+    position: absolute;
+    top: 100px; right: 100px;
+    background: #2b4f1e;
+    color: #c3efad;
+    font-size: 24px; font-weight: 600;
+    padding: 16px 29px;
+    border-radius: 999px;
+  }
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" aria-hidden>
+        <rect width="32" height="32" rx="8" fill="#272b25"/>
+        <path d="M6 22a10 10 0 0 1 20 0Z" fill="#a7d293"/>
+        <circle cx="16" cy="22" r="4" fill="#a0cfd1"/>
+      </svg>
+      materialwind
+    </div>
+    <div class="badge">59 tokens</div>
+
+    <p class="eyebrow">Tailwind CSS 4</p>
+    <h1>Material Design 3 color,<br><span class="accent">the Tailwind way.</span></h1>
+    <p class="tagline">One color in. A whole accessible palette out, with dynamic theming at runtime.</p>
+
+    <div class="ramp">
+      <span style="background:#2b4f1e"></span>
+      <span style="background:#a7d293"></span>
+      <span style="background:#bccbb1"></span>
+      <span style="background:#3d4b36"></span>
+      <span style="background:#a0cfd1"></span>
+      <span style="background:#1e4e4f"></span>
+      <span style="background:#ffb4ab"></span>
+      <span style="background:#32362f"></span>
+    </div>
+
+    <div class="chips">
+      <div class="chip" style="background:#a7d293;color:#143809">bg-primary</div>
+      <div class="chip" style="background:#2b4f1e;color:#c3efad">surface-primary-container</div>
+      <div class="chip" style="background:#3d4b36;color:#d8e7cc">interactive-secondary-container</div>
+      <div class="chip" style="background:#1e4e4f;color:#bcebed">bg-tertiary-container</div>
+    </div>
+
+    <div class="footer">
+      <span>materialwind.saade.dev</span>
+      <span class="dot"></span>
+      <span>npm i materialwind-css</span>
+    </div>
+  </div>
+</body>
+</html>
