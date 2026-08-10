@@ -9,14 +9,14 @@ import { buildPalette } from "materialwind-css/runtime";
 
 const source = process.argv[2] ?? "#506546";
 const scheme = process.argv[3] ?? "tonalSpot";
-const size = process.argv[4] ?? "1920x1080";
+const size = process.argv[4] ?? "1200x630";
 
 /* Tuned per aspect ratio rather than scaled, since 16:9 has room 1.91:1 does not. */
 const SIZES = {
   "1920x1080": { w: 1920, h: 1080, pad: 100, padBottom: 210, eyebrow: 30, h1: 118,
                  tagline: 36, taglineMax: 980, sw: 108, swGap: 16, chip: 22, foot: 24, badge: 24 },
-  "1200x630":  { w: 1200, h: 630,  pad: 64,  padBottom: 150, eyebrow: 20, h1: 84,
-                 tagline: 25, taglineMax: 620, sw: 74,  swGap: 10, chip: 15, foot: 17, badge: 17 },
+  "1200x630":  { w: 1200, h: 630,  pad: 56,  padBottom: 120, eyebrow: 19, h1: 68,
+                 tagline: 21, taglineMax: 580, sw: 54,  swGap: 9,  chip: 14, foot: 16, badge: 16 },
 };
 const S = SIZES[size];
 if (!S) throw new Error(`unknown size ${size}. Use ${Object.keys(SIZES).join(" or ")}`);
@@ -81,14 +81,6 @@ const html = `<!doctype html>
     pointer-events: none;
   }
 
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: ${S.eyebrow}px;
-    letter-spacing: 0.06em;
-    color: ${c["primary"]};
-    margin-bottom: 18px;
-  }
-
   h1 {
     font-size: ${S.h1}px;
     font-weight: 600;
@@ -127,6 +119,18 @@ const html = `<!doctype html>
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
   }
 
+  .cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    align-self: flex-start;
+    margin-top: ${Math.round(S.pad * 0.55)}px;
+    background: ${c["primary"]};
+    color: ${c["on-primary"]};
+    font-size: ${Math.round(S.badge * 1.15)}px;
+    font-weight: 600;
+    padding: ${Math.round(S.badge * 0.85)}px ${Math.round(S.badge * 1.7)}px;
+    border-radius: 999px;
+  }
+
   .footer {
     position: absolute;
     left: ${S.pad}px; bottom: ${S.pad}px;
@@ -138,9 +142,8 @@ const html = `<!doctype html>
   .footer .dot { width: 5px; height: 5px; border-radius: 50%; background: ${c["outline"]}; }
 
   .brand {
-    position: absolute;
-    top: ${S.pad}px; left: ${S.pad}px;
-    display: flex; align-items: center; gap: ${Math.round(S.badge * 0.5)}px;
+    display: flex; align-items: center;
+    margin-bottom: ${Math.round(S.pad * 0.42)}px; gap: ${Math.round(S.badge * 0.5)}px;
     font-size: ${Math.round(S.badge * 1.15)}px;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -169,9 +172,8 @@ const html = `<!doctype html>
       </svg>
       materialwind
     </div>
-    <div class="badge">59 tokens</div>
+    <div class="badge">Tailwind CSS 4</div>
 
-    <p class="eyebrow">Tailwind CSS 4</p>
     <h1>Material Design 3 color,<br><span class="accent">the Tailwind way.</span></h1>
     <p class="tagline">One color in. A whole accessible palette out, with dynamic theming at runtime.</p>
 
@@ -187,6 +189,8 @@ const html = `<!doctype html>
         )
         .join("\n      ")}
     </div>
+
+    <div class="cta">Try the live playground &rarr;</div>
 
     <div class="footer">
       <span>materialwind.saade.dev</span>
