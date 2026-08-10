@@ -9,6 +9,16 @@ import { Rail } from "./components/Rail.tsx";
 import { Code, InlineCode, Note, Section } from "./components/ui.tsx";
 import { ThemeProvider, useTheme } from "./theme.tsx";
 
+function Logo({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 32" aria-hidden className={className}>
+      <rect width="32" height="32" rx="8" fill="var(--mw-surface-container-high)" />
+      <path d="M6 22a10 10 0 0 1 20 0Z" fill="var(--mw-primary)" />
+      <circle cx="16" cy="22" r="4" fill="var(--mw-tertiary)" />
+    </svg>
+  );
+}
+
 function Header({ onOpenNav }: { onOpenNav: () => void }) {
   const { dark, set } = useTheme();
   return (
@@ -35,7 +45,11 @@ function Header({ onOpenNav }: { onOpenNav: () => void }) {
           </svg>
         </button>
 
-        <a href="#top" className="font-semibold tracking-tight text-on-surface">
+        <a
+          href="#top"
+          className="flex items-center gap-2.5 font-semibold tracking-tight text-on-surface"
+        >
+          <Logo className="size-7" />
           materialwind
         </a>
 
